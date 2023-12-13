@@ -60,7 +60,7 @@ public class Car {
     //Then we just return the field name, make.
     //Even though make is declared on the class, we can refer to it from code in our method as shown below.
 
-    //Intellij can create getter methods for you.
+    //Intellij can create getter methods for you:
 
     public String getMake(){
         return make;
@@ -81,6 +81,41 @@ public class Car {
     //"is" is a standard prefix for a getter for a boolean.
     public boolean isConvertible() {
         return convertible;
+    }
+
+
+    //Below is a setter method. Setter methods set data, and don't retrieve it.
+    //Our setter method is void because it doesn't return any data.
+    //The parameter is String because that's what we're setting.
+    //To use this setter method, we will use the new keyword called "this"
+    //What it refers to is the instance field that was created when the object was instantiated.
+    //"this" is a special reference name for the object or instance, which it can use to describe itself.
+    //And we can use "this" to access fields on a class.
+    public void setMake(String myString){                           //To the left is an example of validation using a
+        if(myString == null) myString = "Unknown";                  //setter method to determine what is valid and not valid.
+        String lowercaseMake = myString.toLowerCase();
+        switch(lowercaseMake){
+            case "holden", "porsche", "tesla" -> this.make = myString;
+            default -> {this.make = "Unsupported";
+            }                                      //What "this.make" is doing is updating the variable, private
+        }                                          //String make (field), with the contents of parameter myString that
+       // this.make = myString;                    //was passed to us (From the main class, once called).
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void setDoors(int doors) {
+        this.doors = doors;
+    }
+
+    public void setConvertible(boolean convertible) {
+        this.convertible = convertible;
     }
 
     public void describeCar(){

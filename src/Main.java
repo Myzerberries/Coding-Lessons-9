@@ -6,6 +6,9 @@
 //Java will set any numeric data type to a 0 and a boolean to false.
 public class Main {
 
+    //Notes on initializing an object:
+    //When setting the variable car, we are initializing it when we use the "new" keyword.
+    //"new" keyword is creating (and initializing) a new object from the Car template, called instantiation.
     public static void main(String[] args) {
 
         Car car = new Car();            //Creating the object car from class Car.
@@ -13,10 +16,24 @@ public class Main {
 //        car.make = "Porsche";         We can't use the dot notation when calling the fields in the car class, because
 //        car.model = "Carrera";        they were defined as private in the Car class.
 //        car.color = "Red";
-        car.describeCar();
 
+        car.setMake("5");
+        car.setModel("Carrera");
+        car.setDoors(2);
+        car.setConvertible(true);
+        car.setColor(" black");
         System.out.println("make = " + car.getMake());
         System.out.println("model = " + car.getModel());
+        car.describeCar();
+
+        Car targa = new Car();
+        targa.setMake("5");
+        targa.setModel("Targa");
+        targa.setDoors(2);
+        targa.setConvertible(false);
+        targa.setColor(" red");
+
+        targa.describeCar();
     }
 
     //We allow access to the data (Private fields) in Car, and get it or set it, through getter or setter methods in this class.
